@@ -24,8 +24,18 @@ Design
 ##############################
 Phase: Pretest-Exposure1-Test1-Exposure2-Test2
 
-Exposure -- lexical decision task; no feedback is provided
-Test -- 2AFC task: two visual choices that are minimal pairs will be presented concurrent with the audio; no feedback is provided
+Exposure -- lexical decision task; no feedback is provided; 15 critical + 30 fillers + 45 nonword; 90 trials; random order
+Test -- identification task: D or T; no feedback is provided; random order
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -94,7 +104,7 @@ URL
 ##############################
 python2.7 -m SimpleHTTPServer
 testrun
-http://0.0.0.0:8000/exp1_2AFC.html?condition=testRun&TrL=A&TeL=0&mode=test (mode=test skips the initial section)
+http://0.0.0.0:8000/identification_exp0.html?condition=testRun&TrL=A&TeL=0&mode=test (mode=test skips the initial section)
 full
 http://0.0.0.0:8000/exp1_2AFC.html?condition=experimental&speaker=M15&order=1&visual=2&block=2&mode=test
 http://0.0.0.0:8000/exp1_transcription.html?condition=control&speaker=M4&order=2&visual=1&block=1

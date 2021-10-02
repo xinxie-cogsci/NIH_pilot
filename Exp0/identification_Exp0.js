@@ -137,15 +137,35 @@ $(document).ready(function() {
     /*Rest of the experiment here*/
     else {
         //INSTURCTIONS FOR TRAINING BLOCK
+        var instructions_0 = new InstructionsSubsectionsBlock(
+            {
+                instrImg: 'img/block_procedure.png',
+                instrStyle: 'logo2',
+                title: 'Listen and decide!',
+                mainInstructions: ['<span style="font-weight:bold;">Because you will be asked to make judgments <u>as accurately and as quickly as possible</u>, it is important that you do this experiment in a quiet room with no sources of distraction in the background. Please turn off your ringtones and other notifications.</span>',
+                                   'This experiment has 5 short blocks. The blocks 1, 3, 5 are short and each of them takes about 2-3 minutes. In these blocks, you will be asked to judge <font color="blue">whether a word you heard ended with the sound “d” (as in <em>be<u>d</u></em>) or “t” (as in <em>be<u>t</em></u>)</font>.', 
+                                   'The blocks 2 and 4 are slightly longer, each lasting for about about 5-10 mins. In these blocks, you will be asked to judge <font color="orange">whether the word you heard was a real word of English (e.g., <em>celery</em>) or not (e.g., <em>effering</em>).</font>',
+                                   'The image below presents a schematic diagram of the procedure. <br>We will start with some practice questions.',
+                  ],
+                buttonInstructions: 'Start the practice trials',
+                beginMessage: 'Begin the practice',
+                exptInstructions: false,
+
+            });
+            
+        e.addBlock({block: instructions_0,
+                    onPreview: true,
+                    showInTest: true //showInTest: when urlparam for mode=test, don't add the block
+        });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
+
+
         var instructions_1 = new InstructionsSubsectionsBlock(
             {
-                instrImg: 'img/exposure_diagram.png',
+                instrImg: 'img/ID_task.png',
                 instrStyle: 'logo2',
-                title: 'PART 1: Listen and decide!',
-                mainInstructions: ['This experiment has multiple parts, and each part takes about 5-10 mins to finish.', 
-                                   '<font color="red">It is critical that you focus on the tasks throughout this experiment without any distraction (visual or auditory) in your room. </font>',
-                                   'In this part, you will hear real words and nonsense words. Your task is to decide whether <span style="font-weight:bold;">what you hear is a word of English or not</span>. Each sound will only be played once. <br>',
-                                   'The image below presents a schematic diagram of the procedure. <br>We will start with some examples to familiarize you with the task.',
+                title: '<span style="font-weight:bold;"><font color="blue">D or T?</font></span>',
+                mainInstructions: [
+                                   'In this practice, you will hear words ending in /d/ or /t/. Choose the sound you hear by pressing the corresponding button.', 
                   ],
                 buttonInstructions: 'Start the practice trials',
                 beginMessage: 'Begin the practice',
@@ -158,8 +178,59 @@ $(document).ready(function() {
                     showInTest: true //showInTest: when urlparam for mode=test, don't add the block
         });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
 
-       //EXAMPLE BLOCK
-       var sampleStim = new ExtendedStimuliFileList(
+       //EXAMPLE BLOCK 1: Identification task
+       var sampleStimID = new ExtendedStimuliFileList(
+            {
+                prefix: "stimuli/Test/Eng_01_M/",
+                mediaType: 'audio',
+                filenames: ['bud','but', 'feed', 'feet'], //sentence is not in usable stimulus list; speaker is not either
+                probes: [''],
+                correctKeys: ['Yes','No']
+            }
+        );
+        var sampleBlockID = new IdentificationBlock({stimuli: sampleStimID,
+                     blockRandomizationMethod: "shuffle",
+                     trialInstructions: "Does the word end in /d/ or /t/?",
+                     reps: 1,
+                     respKeys: {'D': 'd', 'T': 't'}, 
+                     categories: ['d', 't'], 
+                     fixationTime: 500,
+                     ITI:1500, // this interval is used to present feedback if any
+                     respTimeOut: 10000,
+                     mediaType: 'audio',
+                     namespace: 'test1'
+                     }); 
+                                     
+         e.addBlock({
+                  block: sampleBlockID,
+                  instructions:'<span style="font-weight:bold;">Please respond as quickly as possible.</span> <br><br><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font>',
+                  onPreview: false,
+         });
+         
+         var instructions_2 = new InstructionsSubsectionsBlock(
+            {
+                instrImg: 'img/LD_task.png',
+                instrStyle: 'logo2',
+                title: '<span style="font-weight:bold;"><font color="orange">Word or not?</font></span>',
+                mainInstructions: [
+                                   'Now we will do a practice for the second task. In this part, you will hear real words and nonsense words.',
+                                   'Your task is to decide whether what you hear is a word of English or not. Each sound will only be played once.',
+                          		   "<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span></p>", 
+                  ],
+                buttonInstructions: 'Start the practice trials',
+                beginMessage: 'Begin the practice',
+                exptInstructions: false,
+
+            });
+            
+        e.addBlock({block: instructions_2,
+                    onPreview: true,
+                    showInTest: true //showInTest: when urlparam for mode=test, don't add the block
+        });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
+
+       
+       //EXAMPLE BLOCK 2: Lexical decision task
+       var sampleStimLD = new ExtendedStimuliFileList(
             {
                 prefix: "stimuli/LD/Eng_07_M/",
                 mediaType: 'audio',
@@ -168,7 +239,7 @@ $(document).ready(function() {
                 correctKeys: ['Yes','No']
             }
         );
-        var sampleBlock = new PrimingBlock({stimuli: sampleStim,
+        var sampleBlockLD = new PrimingBlock({stimuli: sampleStimLD,
                              blockRandomizationMethod: "dont_randomize",
                              trialInstructions: "Do you hear a real English word?",
                              reps: 1,
@@ -181,7 +252,7 @@ $(document).ready(function() {
                              mediaType: 'audio',
                              namespace: 'sample'});                        
          e.addBlock({
-                  block: sampleBlock,
+                  block: sampleBlockLD,
                   instructions:'During this practice session, you will get feedback regarding your accuracy and the time it takes you to respond. <span style="font-weight:bold;">Please respond as quickly as possible.</span> <br><br><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font>',
                   onPreview: false,
          });
@@ -193,63 +264,63 @@ $(document).ready(function() {
         if (condition === "testRun") {
             training1Prefix = "stimuli/LD/Mandarin_speaker5/";
             training2Prefix = "stimuli/LD/Mandarin_speaker5/";
-            practicePrefix = "stimuli/Test/Mandarin_speaker5/";
-         //   test0Prefix = "stimuli/Test/Mandarin_speaker5/";
+           // practicePrefix = "stimuli/Test/Mandarin_speaker5/";
+            test0Prefix = "stimuli/Test/Mandarin_speaker5/";
             test1Prefix = "stimuli/Test/Mandarin_speaker5/";
             test2Prefix = "stimuli/Test/Mandarin_speaker5/";
             training1List = "lists/Training1_List_"+condition+"_"+TrL+".txt";
             training2List = "lists/Training2_List_"+condition+"_"+TrL+".txt";
-            practiceList = "lists/Test0.txt";
-          //  test0List = "lists/Test/Test0_List"+TeL+".txt";
-            test1List = "lists/Test/Test1_List"+TeL+".txt";
-            test2List = "lists/Test/Test2_List"+TeL+".txt";
+           // practiceList = "lists/Test/Test0_List"+TeL+".txt";
+            test0List = "lists/Test/Testrun/Test0_List"+TeL+".txt";
+            test1List = "lists/Test/Testrun/Test1_List"+TeL+".txt";
+            test2List = "lists/Test/Testrun/Test2_List"+TeL+".txt";
         }
         if (condition === "experimental") {
             training1Prefix = "stimuli/LD/Mandarin_speaker5/";
             training2Prefix = "stimuli/LD/Mandarin_speaker5/";
-            practicePrefix = "stimuli/Test/Mandarin_speaker5/";
-         //   test0Prefix = "stimuli/Test/Mandarin_speaker5/";
+            //practicePrefix = "stimuli/Test/Mandarin_speaker5/";
+            test0Prefix = "stimuli/Test/Mandarin_speaker5/";
             test1Prefix = "stimuli/Test/Mandarin_speaker5/";
             test2Prefix = "stimuli/Test/Mandarin_speaker5/";
             training1List = "lists/Training1_List_"+condition+"_"+TrL+".txt";
             training2List = "lists/Training2_List_"+condition+"_"+TrL+".txt";
-            practiceList = "lists/Test0.txt";
-          //  test0List = "lists/Test/Test0_List"+TeL+".txt";
+            //practiceList = "lists/Test0.txt";
+            test0List = "lists/Test/Test0_List"+TeL+".txt";
             test1List = "lists/Test/Test1_List"+TeL+".txt";
             test2List = "lists/Test/Test2_List"+TeL+".txt";
         }
         if (condition === "control") {
            	training1Prefix = "stimuli/LD/Mandarin_speaker5/";
             training2Prefix = "stimuli/LD/Mandarin_speaker5/";
-            practicePrefix = "stimuli/Test/Mandarin_speaker5/";
-          //  test0Prefix = "stimuli/Test/Mandarin_speaker5/";
+            //practicePrefix = "stimuli/Test/Mandarin_speaker5/";
+            test0Prefix = "stimuli/Test/Mandarin_speaker5/";
             test1Prefix = "stimuli/Test/Mandarin_speaker5/";
             test2Prefix = "stimuli/Test/Mandarin_speaker5/";
             training1List = "lists/Training1_List_"+condition+"_"+TrL+".txt";
             training2List = "lists/Training2_List_"+condition+"_"+TrL+".txt";
-            practiceList = "lists/Test0.txt";
-          //  test0List = "lists/Test/Test0_List"+TeL+".txt";
+           // practiceList = "lists/Test0.txt";
+            test0List = "lists/Test/Test0_List"+TeL+".txt";
             test1List = "lists/Test/Test1_List"+TeL+".txt";
             test2List = "lists/Test/Test2_List"+TeL+".txt";
         }
         
         
         //PRE-TEST BLOCK
-        Papa.parse(practiceList, {
+        Papa.parse(test0List, {
             download: true,
             header: true,
             delimiter: '|',
             skipEmptyLines: true,
             complete: function(results) {
-                console.log(practiceList);
-                var practiceStim = new ExtendedStimuliFileList({
-                        prefix: practicePrefix,
+                console.log(test0List);
+                var test0Stim = new ExtendedStimuliFileList({
+                        prefix: test0Prefix,
                         mediaType: 'audio',
                         filenames: getFromPapa(results, 'Filename'),
                         probes: getFromPapa(results, 'Target'),
                         correctKeys: getFromPapa(results,'CorrectAnswer')
                 });
-                var practiceBlock = new IdentificationBlock({stimuli: practiceStim,
+                var test0Block = new IdentificationBlock({stimuli: test0Stim,
                          blockRandomizationMethod: "shuffle",
                          trialInstructions: "Does the word end in /d/ or /t/?",
                          reps: 1,
@@ -259,11 +330,15 @@ $(document).ready(function() {
                          ITI:1500, // this interval is used to present feedback if any
                          respTimeOut: 10000,
                          mediaType: 'audio',
-                         namespace: 'practice'
+                         namespace: 'test0'
                 });                                
                  e.addBlock({
-                          block: practiceBlock,
-                          instructions:"You will be presented with a lot of words that end with a /d/ sound (e.g., 'bead') or a /t/ sound (e.g., 'bet'). Your task is to <span style='font-weight:bold;'>indicate the </span>"+"<span style='font-weight:bold;'>final sound of the word as /d/ or /t/</span>. <br><br><font color='red'>It is important that you keep your volume at the same level throughout the experiment.</font>",
+                          block: test0Block,
+                          instructions:["<p>Great! You are done with the practice. Now the real experiment begins. You will hear a different speaker, but the tasks remain the same. </p>",
+                          "<p>In Block 1, you will complete the <font color='blue'>'D or T'</font> task.</p>",
+                          "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>", 
+                          "<p><font color='red'>Remember to keep your volume at the same level it was previously. </font></p>",
+                          ],
                           onPreview: false,
                   });
 
@@ -295,14 +370,14 @@ $(document).ready(function() {
                          fixationTime: 500,
                          ITI:1500, 
                          respTimeOut: 2000,
-                         namespace: 'training'}); 
+                         namespace: 'training1'}); 
                 e.addBlock({
                           block: training1Block,
-                          instructions:["<p>You have completed the practice! Let's start the real trials. In this part, you will hear real words and nonsense words. </p>",
-                          				"<p>Your task is to decide whether what you hear is a word of English or not. Each sound will only be played once. </p>",
-                          				"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span><p>",
-                          				"<p>Respond as quickly as possible without sacrificing accuracy. <span style='font-weight:bold;'>We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
-                                        "<p><font color='blue'>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </font></p>", 
+                          instructions:["<p>You have completed Block 1!</p>",
+                          				"<p>In the next block, you will complete the <font color='orange'>'Word or not'</font> task. Your task is to decide whether what you hear is a word of English or not. Each sound will only be played once. </p>",
+                          				"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not ('A' for Yes, 'L' for No). </span><p>",
+                          				"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
+                                        "<p>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>", 
                                         "<font color='red'>Remember to keep your volume at the same level it was previously. </font>",
                           ],
                           onPreview: false,
@@ -342,8 +417,8 @@ $(document).ready(function() {
                                               
                  e.addBlock({
                           block: test1Block,
-                          instructions:["<p>You have completed the first part! You will be presented with a lot of words that end with a /d/ sound (e.g., 'bead') or a /t/ sound (e.g., 'bet'). Your task is to <span style='font-weight:bold;'>indicate the </span>"+"<span style='font-weight:bold;'>final sound of the word as /d/ or /t/</span>. </p>",
-                          "<p><font color='blue'>During this part, you won't get any feedback, but we will record your answers. </font></p>",
+                          instructions:["<p>You have completed Block 2! The next block is short and you will again complete the <font color='blue'>'D or T' </font>task.</p>",
+                          "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>",
                           "<font color='red'>Remember to keep your volume at the same level it was previously. "
                           ],
                           onPreview: false,
@@ -374,11 +449,13 @@ $(document).ready(function() {
                          fixationTime: 500,
                          ITI:1500, 
                          respTimeOut: 2000,
-                         namespace: 'training'}); 
+                         namespace: 'training2'}); 
                 e.addBlock({
                           block: training2Block,
-                          instructions:["<p>You have completed this block! Now let's do another round of English word judgment. </p> Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not.</span> <p>Respond as quickly as possible without sacrificing accuracy. <span style='font-weight:bold;'>We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
-                                        "<p><font color='blue'>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 5-10 mins to finish. </font></p>", 
+                          instructions:["<p>You have completed Block 3! Now let's do another round of <font color='blue'>'Word or not'</font> judgment. </p>", 
+                          				"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not ('A' for Yes, 'L' for No). </span><p>",
+                          				"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
+                                        "<p>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>", 
                                         "<font color='red'>Remember to keep your volume at the same level it was previously. </font>",
                           ],
                           onPreview: false,
@@ -416,15 +493,17 @@ $(document).ready(function() {
                                               
                      e.addBlock({
                               block: test2Block,
-                              instructions:["<p>This will be the last block of the experiment. The task is the same as you previously: <span style='font-weight:bold;'>indicate the </span>"+"<span style='font-weight:bold;'>final sound of the word as /d/ or /t/</span>. Click continue when you are ready. </p>",
-                                            "<p><font color='blue'>During this part, you won't get any feedback, but we will record your answers. </font></p>",
-                                            "<font color='red'>Remember to keep your volume at the same level it was previously. "
+                              instructions:["<p>You have completed Block 4! The next will be the last block of the experiment.",
+                              				"<p>You will again complete the <font color='blue'>'D or T'</font> task.</p>",
+                              				"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>",
+                              				"<font color='red'>Remember to keep your volume at the same level it was previously. "
                                             ],
                               onPreview: false,
                       });
                   
                 $("#continue").hide();
                 e.nextBlock();     
+
 
 					 }
 					}); 
@@ -436,7 +515,6 @@ $(document).ready(function() {
         }); 
        }
     });                 
-
 
    }
    /*End of Rest of the experiment here*/

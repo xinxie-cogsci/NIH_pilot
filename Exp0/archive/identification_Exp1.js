@@ -70,7 +70,7 @@ $(document).ready(function() {
     var instructions = new InstructionsSubsectionsBlock(
             {
                 logoImg: 'img/logo.png',
-                title: 'Listen, look and decide',
+                title: 'Listen and decide',
                 mainInstructions: ['Thanks for your interest in our study!  This HIT is a psychology experiment about how people understand speech. You will listen to speech sounds and you will also see visual objects or text. You will have to make a decision about what you hear and/or what you see.',
                                    'Details will be provided once the experiment begins.',
                                    'Please read through each of the following items that will inform you about the study and its requirements. You can click the headings below to expand or close each section.',
@@ -144,8 +144,9 @@ $(document).ready(function() {
                 instrImg: 'img/exposure_diagram.png',
                 instrStyle: 'logo2',
                 title: 'PART 1: Listen and decide!',
-                mainInstructions: ['This experiment has two parts, and each part takes about 10~20 mins to finish.', 
-                                   '<font color="red">It is critical that you focus on the tasks throughout this experiment without any distraction (visual or auditory) in your room. </font>',
+                mainInstructions: [
+                                   'This experiment has 5 short blocks. <span style="font-weight:bold;">It is critical that you focus on the tasks throughout this experiment without any distraction (visual or auditory) in your room. </span>',
+                                   'The blocks 1, 3, 5 are short and each of them takes about 2-3 minutes. In these blocks, you will be asked to judge <font color="blue">whether a word you heard ended with the sound “d” (as in <p style="font-style: italic;">be<u>d</u></p>) or “t” (as in <p style="font-style: italic;">bet</p>)</font>.', 
                                    'In this part, you will hear real words and nonsense words. Your task is to decide whether <span style="font-weight:bold;">what you hear is a word of English or not</span>. Each sound will only be played once. <br>',
                                    'The image below presents a schematic diagram of the procedure. <br>We will start with some examples to familiarize you with the task.',
                   ],
