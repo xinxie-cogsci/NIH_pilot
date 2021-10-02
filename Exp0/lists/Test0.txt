@@ -1,3 +1,0 @@
-Filename|Target|CorrectAnswer
-5aid||d
-5eight||t

@@ -268,8 +268,8 @@ $(document).ready(function() {
             test0Prefix = "stimuli/Test/Mandarin_speaker5/";
             test1Prefix = "stimuli/Test/Mandarin_speaker5/";
             test2Prefix = "stimuli/Test/Mandarin_speaker5/";
-            training1List = "lists/Training1_List_"+condition+"_"+TrL+".txt";
-            training2List = "lists/Training2_List_"+condition+"_"+TrL+".txt";
+            training1List = "lists/Training/Testrun/Training1_List_"+condition+"_"+TrL+".txt";
+            training2List = "lists/Training/Testrun/Training2_List_"+condition+"_"+TrL+".txt";
            // practiceList = "lists/Test/Test0_List"+TeL+".txt";
             test0List = "lists/Test/Testrun/Test0_List"+TeL+".txt";
             test1List = "lists/Test/Testrun/Test1_List"+TeL+".txt";
@@ -282,8 +282,8 @@ $(document).ready(function() {
             test0Prefix = "stimuli/Test/Mandarin_speaker5/";
             test1Prefix = "stimuli/Test/Mandarin_speaker5/";
             test2Prefix = "stimuli/Test/Mandarin_speaker5/";
-            training1List = "lists/Training1_List_"+condition+"_"+TrL+".txt";
-            training2List = "lists/Training2_List_"+condition+"_"+TrL+".txt";
+            training1List = "lists/Training/Training1_List_"+condition+"_"+TrL+".txt";
+            training2List = "lists/Training/Training2_List_"+condition+"_"+TrL+".txt";
             //practiceList = "lists/Test0.txt";
             test0List = "lists/Test/Test0_List"+TeL+".txt";
             test1List = "lists/Test/Test1_List"+TeL+".txt";
@@ -296,8 +296,8 @@ $(document).ready(function() {
             test0Prefix = "stimuli/Test/Mandarin_speaker5/";
             test1Prefix = "stimuli/Test/Mandarin_speaker5/";
             test2Prefix = "stimuli/Test/Mandarin_speaker5/";
-            training1List = "lists/Training1_List_"+condition+"_"+TrL+".txt";
-            training2List = "lists/Training2_List_"+condition+"_"+TrL+".txt";
+            training1List = "lists/Training/Training1_List_"+condition+"_"+TrL+".txt";
+            training2List = "lists/Training/Training2_List_"+condition+"_"+TrL+".txt";
            // practiceList = "lists/Test0.txt";
             test0List = "lists/Test/Test0_List"+TeL+".txt";
             test1List = "lists/Test/Test1_List"+TeL+".txt";
