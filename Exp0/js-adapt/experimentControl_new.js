@@ -351,7 +351,7 @@ InstructionsSubsectionsBlock.prototype = {
             .append('<h3>'+this.beginMessage+'</h3>')
             .append($('<div></div>')
                     .addClass('listcontent')
-                    .append('<p>Press the green box below to continue. Make sure you understand all the instructions above.</p>')
+                    .append('<p>Press the green box below to continue. </p>')
                     .append('<button type="button" id="endinstr">'+this.buttonInstructions+'</button>'))
             .appendTo(instList);
         

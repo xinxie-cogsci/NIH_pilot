@@ -145,7 +145,7 @@ $(document).ready(function() {
                 mainInstructions: ['<span style="font-weight:bold;">Because you will be asked to make judgments <u>as accurately and as quickly as possible</u>, it is important that you do this experiment in a quiet room with no sources of distraction in the background. Please turn off your ringtones and other notifications.</span>',
                                    'This experiment has 5 short blocks. The blocks 1, 3, 5 are short and each of them takes about 2-3 minutes. In these blocks, you will be asked to judge <font color="blue">whether a word you heard ended with the sound “d” (as in <em>be<u>d</u></em>) or “t” (as in <em>be<u>t</em></u>)</font>.', 
                                    'The blocks 2 and 4 are slightly longer, each lasting for about about 5-10 mins. In these blocks, you will be asked to judge <font color="orange">whether the word you heard was a real word of English (e.g., <em>celery</em>) or not (e.g., <em>effering</em>).</font>',
-                                   'The image below presents a schematic diagram of the procedure. <br>We will start with some practice questions.',
+                                   'We will start with some practice questions.',
                   ],
                 buttonInstructions: 'Start the practice trials',
                 beginMessage: 'Begin the practice',
@@ -165,7 +165,7 @@ $(document).ready(function() {
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="blue">D or T?</font></span>',
                 mainInstructions: [
-                                   'In this practice, you will hear words ending in /d/ or /t/. Choose the sound you hear by pressing the corresponding button.', 
+                                   'In this practice, you will hear words ending in "d" or "t". Choose the sound you hear by pressing the corresponding button.', 
                   ],
                 buttonInstructions: 'Start the practice trials',
                 beginMessage: 'Begin the practice',
@@ -190,7 +190,7 @@ $(document).ready(function() {
         );
         var sampleBlockID = new IdentificationBlock({stimuli: sampleStimID,
                      blockRandomizationMethod: "shuffle",
-                     trialInstructions: "Does the word end in /d/ or /t/?",
+                     trialInstructions: 'Does the word end in "d" or "t"?',
                      reps: 1,
                      respKeys: {'D': 'd', 'T': 't'}, 
                      categories: ['d', 't'], 
@@ -213,7 +213,7 @@ $(document).ready(function() {
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="orange">Word or not?</font></span>',
                 mainInstructions: [
-                                   'Now we will do a practice for the second task. In this part, you will hear real words and nonsense words.',
+                                   'Now we will do a practice for the second task. In this part, you will hear real words and nonwords.',
                                    'Your task is to decide whether what you hear is a word of English or not. Each sound will only be played once.',
                           		   "<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span></p>", 
                   ],
@@ -322,7 +322,7 @@ $(document).ready(function() {
                 });
                 var test0Block = new IdentificationBlock({stimuli: test0Stim,
                          blockRandomizationMethod: "shuffle",
-                         trialInstructions: "Does the word end in /d/ or /t/?",
+                         trialInstructions: 'Does the word end in "d" or "t"?',
                          reps: 1,
                          respKeys: {'D': 'd', 'T': 't'}, 
                          categories: ['d', 't'], 
@@ -361,7 +361,7 @@ $(document).ready(function() {
                         correctKeys: getFromPapa(results,'CorrectAnswer')
                 });
                var training1Block = new PrimingBlock({stimuli: training1Stim,
-                         blockRandomizationMethod: "dont_randomize",
+                         blockRandomizationMethod: "shuffle",
                          trialInstructions: "Do you hear a real word?",
                          reps: 1,
                          respKeys: {'A': 'Yes', 'L': 'No'}, //{71: 'B', 72: 'D'},
@@ -375,7 +375,7 @@ $(document).ready(function() {
                           block: training1Block,
                           instructions:["<p>You have completed Block 1!</p>",
                           				"<p>In the next block, you will complete the <font color='orange'>'Word or not'</font> task. Your task is to decide whether what you hear is a word of English or not. Each sound will only be played once. </p>",
-                          				"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not ('A' for Yes, 'L' for No). </span><p>",
+                          				"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span><p>",
                           				"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
                                         "<p>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>", 
                                         "<font color='red'>Remember to keep your volume at the same level it was previously. </font>",
@@ -404,7 +404,7 @@ $(document).ready(function() {
                     });
                 var test1Block = new IdentificationBlock({stimuli: test1Stim,
                      blockRandomizationMethod: "shuffle",
-                     trialInstructions: "Does the word end in /d/ or /t/?",
+                     trialInstructions: 'Does the word end in "d" or "t"?',
                      reps: 1,
                      respKeys: {'D': 'd', 'T': 't'}, 
                      categories: ['d', 't'], 
@@ -440,7 +440,7 @@ $(document).ready(function() {
                         correctKeys: getFromPapa(results,'CorrectAnswer')
                 });
                var training2Block = new PrimingBlock({stimuli: training2Stim,
-                         blockRandomizationMethod: "dont_randomize",
+                         blockRandomizationMethod: "shuffle",
                          trialInstructions: "Do you hear a real word?",
                          reps: 1,
                          respKeys: {'A': 'Yes', 'L': 'No'}, //{71: 'B', 72: 'D'},
@@ -452,8 +452,8 @@ $(document).ready(function() {
                          namespace: 'training2'}); 
                 e.addBlock({
                           block: training2Block,
-                          instructions:["<p>You have completed Block 3! Now let's do another round of <font color='blue'>'Word or not'</font> judgment. </p>", 
-                          				"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not ('A' for Yes, 'L' for No). </span><p>",
+                          instructions:["<p>You have completed Block 3! Now let's do another round of <font color='orange'>'Word or not'</font> judgment. </p>", 
+                          				"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span><p>",
                           				"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
                                         "<p>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>", 
                                         "<font color='red'>Remember to keep your volume at the same level it was previously. </font>",
