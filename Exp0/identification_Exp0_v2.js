@@ -112,9 +112,9 @@ $(document).ready(function() {
                                               }]
                                 },
                                 {
-                                    title: 'Further information',
+                                    title: 'Technical difficulties',
                                     content: ['Please maximize the browser window to eliminate distractions. This experiment requires that your browser support javascript.',
-                                    		 // 'Sometimes it can happen that technical difficulties cause experimental scripts to freeze so that you will not be able to submit a HIT. We are trying our best to avoid these problems. Should they nevertheless occur, we urge you to <a href="mailto:hlplab@gmail.com">contact us</a>, and include the HIT ID number and your worker ID.',
+                                    		  'Sometimes it can happen that technical difficulties cause experimental scripts to freeze so that you will not be able to submit your session. We are trying our best to avoid these problems. Should they nevertheless occur, we urge you to <a href="mailto:hlplab@gmail.com">contact us</a>, and include the HIT ID number and your worker ID.',
                                              // 'If you are interested in hearing how the experiments you are participating in help us to understand the human brain, feel free to subscribe to our <a href="http://hlplab.wordpress.com/">lab blog</a> where we announce new findings. Note that typically about one year passes before an experiment is published.'
                                              ],
                                     finallyInfo: false
@@ -167,7 +167,7 @@ $(document).ready(function() {
                                    'In this practice, you will hear words ending in "d" or "t". Choose the sound you hear by pressing the corresponding button.', 
                   ],
                 buttonInstructions: 'Start the practice trials',
-                beginMessage: 'Begin the practice',
+                beginMessage: 'Click when ready',
                 exptInstructions: false,
 
             });
@@ -202,7 +202,11 @@ $(document).ready(function() {
                                      
          e.addBlock({
                   block: sampleBlockID,
-                  instructions:'<span style="font-weight:bold;">Please respond as quickly as possible.</span> <br><br><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font>',
+                  instructions:[
+                  '<p>During this practice session, no feedback will be provided.</p>',
+                  "<p><span style='font-weight:bold;'>Please respond as quickly as possible. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>",
+                  '<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
+                  ],
                   onPreview: false,
          });
          
@@ -217,7 +221,7 @@ $(document).ready(function() {
                           		   "<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span></p>", 
                   ],
                 buttonInstructions: 'Start the practice trials',
-                beginMessage: 'Begin the practice',
+                beginMessage: 'Click when ready',
                 exptInstructions: false,
 
             });
@@ -252,7 +256,10 @@ $(document).ready(function() {
                              namespace: 'sample'});                        
          e.addBlock({
                   block: sampleBlockLD,
-                  instructions:'During this practice session, you will get feedback regarding your accuracy and the time it takes you to respond. <span style="font-weight:bold;">Please respond as quickly as possible.</span> <br><br><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font>',
+                  instructions:['<p>During this practice session, you will get feedback regarding your accuracy and the time it takes you to respond.</p>',
+                  "<p><span style='font-weight:bold;'>Please respond as quickly as possible. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>",
+                  '<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
+                  ],
                   onPreview: false,
          });
         
@@ -303,8 +310,29 @@ $(document).ready(function() {
             test2List = "lists/Test/Test2_List"+TeL+".txt";
         }
         
-        
-        //PRE-TEST BLOCK
+                 
+        //Instructions before the real experiment Block 1
+           var instructions_block1 = new InstructionsSubsectionsBlock(
+            {
+                instrImg: 'img/ID_task.png',
+                instrStyle: 'logo2',
+                title: '<span style="font-weight:bold;"><font color="blue">Block 1: D or T?</font></span>',
+                mainInstructions: ["<p>Great! You are done with the practice. Now the real experiment begins. You will hear a different speaker, but the tasks remain the same. </p>",
+                                   "<p>In Block 1, you will complete the <font color='blue'>'D or T'</font> task.</p>",
+                                 //  "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>", 
+                   ],
+                buttonInstructions: 'Begin Block 1',
+                beginMessage: 'Click when ready',
+                exptInstructions: false,
+
+            });
+            
+        e.addBlock({block: instructions_block1,
+                    onPreview: true,
+                    showInTest: true //showInTest: when urlparam for mode=test, don't add the block
+        });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
+
+        //PRE-TEST BLOCK (Block  1)
         Papa.parse(test0List, {
             download: true,
             header: true,
@@ -333,17 +361,37 @@ $(document).ready(function() {
                 });                                
                  e.addBlock({
                           block: test0Block,
-                          instructions:["<p>Great! You are done with the practice. Now the real experiment begins. You will hear a different speaker, but the tasks remain the same. </p>",
-                          "<p>In Block 1, you will complete the <font color='blue'>'D or T'</font> task.</p>",
-                          "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>", 
-                          "<p><font color='red'>Remember to keep your volume at the same level it was previously. </font></p>",
+                          instructions:[
+                          '<p>During this block, no feedback will be provided.</p>',
+                  		  "<p><span style='font-weight:bold;'>Please respond as quickly as possible. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>",
+                          '<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
                           ],
                           onPreview: false,
                   });
 
-          //END OF PRACTICE FOR TEST BLOCK
-         
-        
+          //END OF PRE-TEST BLOCK
+
+         //Instructions before the real experiment Block 2
+           var instructions_block2 = new InstructionsSubsectionsBlock(
+            {
+                instrImg: 'img/LD_task.png',
+                instrStyle: 'logo2',
+                title: '<span style="font-weight:bold;"><font color="orange">Block 2: Word or not?</font></span>',
+                mainInstructions: ["<p>You have completed Block 1. </p>",
+                                   "<p>In Block 2, you will complete the <font color='orange'>'Word or not'</font> task.</p>",
+                                 //  "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>", 
+                   ],
+                buttonInstructions: 'Begin Block 2',
+                beginMessage: 'Click when ready',
+                exptInstructions: false,
+
+            });
+            
+        e.addBlock({block: instructions_block2,
+                    onPreview: true,
+                    showInTest: true //showInTest: when urlparam for mode=test, don't add the block
+        });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
+
         //TRAINING BLOCK 1
         Papa.parse(training1List, {
             download: true,
@@ -372,20 +420,45 @@ $(document).ready(function() {
                          namespace: 'training1'}); 
                 e.addBlock({
                           block: training1Block,
-                          instructions:["<p>You have completed Block 1!</p>",
-                          				"<p>In the next block, you will complete the <font color='orange'>'Word or not'</font> task. Your task is to decide whether what you hear is a word of English or not. Each sound will only be played once. </p>",
-                          				"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span><p>",
-                          				"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
-                                        "<p>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>", 
-                                        "<font color='red'>Remember to keep your volume at the same level it was previously. </font>",
+                          instructions:[
+                          '<p>During this block, you will not be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>',
+                  		  "<p><span style='font-weight:bold;'>Please respond as quickly as possible. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>",
+                          '<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
+                        
+                          			//	"<p>In the next block, you will complete the <font color='orange'>'Word or not'</font> task. Your task is to decide whether what you hear is a word of English or not. Each sound will only be played once. </p>",
+                          			//	"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span><p>",
+                          			//	"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
+                                    //    "<p>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>", 
+                                    //    "<font color='red'>Remember to keep your volume at the same level it was previously. </font>",
                           ],
                           onPreview: false,
                  });
 
             //END OF TRAINING BLOCK 1
- 
+         
+         //Instructions before the real experiment Block 3
+           var instructions_block3 = new InstructionsSubsectionsBlock(
+            {
+                instrImg: 'img/ID_task.png',
+                instrStyle: 'logo2',
+                title: '<span style="font-weight:bold;"><font color="blue">Block 3: D or T?</font></span>',
+                mainInstructions: ["<p>You have completed Block 2.</p>",
+                                   "<p>In Block 3, you will complete the <font color='blue'>'D or T'</font> task.</p>",
+                                 //  "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>", 
+                   ],
+                buttonInstructions: 'Begin Block 3',
+                beginMessage: 'Click when ready',
+                exptInstructions: false,
+
+            });
+            
+        e.addBlock({block: instructions_block3,
+                    onPreview: true,
+                    showInTest: true //showInTest: when urlparam for mode=test, don't add the block
+        });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
+
      
-         //TEST BLOCK 1
+         //TEST BLOCK 2 (block 3)
                     
          Papa.parse(test1List, {
             download: true,
@@ -416,14 +489,40 @@ $(document).ready(function() {
                                               
                  e.addBlock({
                           block: test1Block,
-                          instructions:["<p>You have completed Block 2! The next block is short and you will again complete the <font color='blue'>'D or T' </font>task.</p>",
-                          "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>",
-                          "<font color='red'>Remember to keep your volume at the same level it was previously. "
+                          instructions:['<p>During this block, no feedback will be provided.</p>',
+                  		  "<p><span style='font-weight:bold;'>Please respond as quickly as possible. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>",
+                          '<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
+                      
                           ],
                           onPreview: false,
                   });
-                  
-            //TRAINING BLOCK 2      
+        
+        
+        //Instructions before the real experiment Block 4
+           var instructions_block4 = new InstructionsSubsectionsBlock(
+            {
+                instrImg: 'img/LD_task.png',
+                instrStyle: 'logo2',
+                title: '<span style="font-weight:bold;"><font color="orange">Block 4: Word or not?</font></span>',
+                mainInstructions: ["<p>You have completed Block 3. </p>",
+                                   "<p>In Block 4, you will complete the <font color='orange'>'Word or not'</font> task.</p>",
+                                 //  "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>", 
+                   ],
+                buttonInstructions: 'Begin Block 4',
+                beginMessage: 'Click when ready',
+                exptInstructions: false,
+
+            });
+            
+        e.addBlock({block: instructions_block4,
+                    onPreview: true,
+                    showInTest: true //showInTest: when urlparam for mode=test, don't add the block
+        });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
+
+        
+        
+        
+            //TRAINING BLOCK 2 (block 4)     
         Papa.parse(training2List, {
             download: true,
             header: true,
@@ -451,19 +550,38 @@ $(document).ready(function() {
                          namespace: 'training2'}); 
                 e.addBlock({
                           block: training2Block,
-                          instructions:["<p>You have completed Block 3! Now let's do another round of <font color='orange'>'Word or not'</font> judgment. </p>", 
-                          				"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span><p>",
-                          				"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
-                                        "<p>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>", 
-                                        "<font color='red'>Remember to keep your volume at the same level it was previously. </font>",
+                          instructions:[ '<p>During this block, you will not be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>',
+                  		  "<p><span style='font-weight:bold;'>Please respond as quickly as possible. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>",
+                          '<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
                           ],
                           onPreview: false,
                  });
 
             //END OF TRAINING BLOCK 2     
             
+           //Instructions before the real experiment Block 5
+           var instructions_block5 = new InstructionsSubsectionsBlock(
+            {
+                instrImg: 'img/ID_task.png',
+                instrStyle: 'logo2',
+                title: '<span style="font-weight:bold;"><font color="blue">Block 5: D or T?</font></span>',
+                mainInstructions: ["<p>You have completed Block 4.</p>",
+                                   "<p>In Block 5, you will complete the <font color='blue'>'D or T'</font> task.</p>",
+                                 //  "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>", 
+                   ],
+                buttonInstructions: 'Begin Block 5',
+                beginMessage: 'Click when ready',
+                exptInstructions: false,
+
+            });
+            
+        e.addBlock({block: instructions_block5,
+                    onPreview: true,
+                    showInTest: true //showInTest: when urlparam for mode=test, don't add the block
+        });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
+
                   
-            //TEST BLOCK 2   
+            //TEST BLOCK 2 (block 5)  
              Papa.parse(test2List, {
                 download: true,
                 header: true,
@@ -492,11 +610,10 @@ $(document).ready(function() {
                                               
                      e.addBlock({
                               block: test2Block,
-                              instructions:["<p>You have completed Block 4! The next will be the last block of the experiment.",
-                              				"<p>You will again complete the <font color='blue'>'D or T'</font> task.</p>",
-                              				"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>",
-                              				"<font color='red'>Remember to keep your volume at the same level it was previously. "
-                                            ],
+                              instructions:['<p>During this block, no feedback will be provided.</p>',
+                  		  					"<p><span style='font-weight:bold;'>Please respond as quickly as possible. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>",
+                          					'<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
+								],
                               onPreview: false,
                       });
                   

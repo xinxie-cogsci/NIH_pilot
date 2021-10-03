@@ -32,8 +32,8 @@ function Experiment(baseobj) {
     $.extend(this, baseobj);
     this.survey = baseobj.survey; //TODO: make this a list of surveys?
     this.urlparams = gupo();
-    this.consentFormDiv = '<div id="consent">By accepting this HIT, you confirm that you have read and understood the <a target="_blank" href="' + baseobj.consentForm +
-    '">consent form</a>, that you are willing to participate in this experiment, and that you agree that the data you provide by participating can be used in scientific publications (no identifying information will be used). Sometimes it is necessary to share the data elicited from you &mdash; including sound files &mdash; with other researchers for scientific purposes (for replication purposes). That is the only reason for which we will share data and we will only share data with other researchers and only if it is for non-commercial use. Identifying information will <span style="font-weight:bold;">never</span> be shared (your MTurk ID will be replaced with an arbitrary alphanumeric code).</div>'
+    this.consentFormDiv = '<div id="consent">You confirm that you have read and understood the <a target="_blank" href="' + baseobj.consentForm +
+    '"><font color="blue">consent form</font></a>, that you are willing to participate in this experiment, and that you agree that the data you provide by participating can be used in scientific publications (no identifying information will be used). Sometimes it is necessary to share the data elicited from you &mdash; including sound files &mdash; with other researchers for scientific purposes (for replication purposes). That is the only reason for which we will share data and we will only share data with other researchers and only if it is for non-commercial use. Identifying information will <span style="font-weight:bold;">never</span> be shared.</div>'
 
 }
 
