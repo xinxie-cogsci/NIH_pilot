@@ -36,7 +36,7 @@ $(document).ready(function() {
     e = new Experiment(
         {
             rsrbProtocolNumber: 'RSRB00045955',
-            consentForm: 'https://www.hlp.rochester.edu/consent/RSRB45955_Consent_2021-02-10.pdf',
+            consentForm: 'https://www.hlp.rochester.edu/mturk/xxie/NIH_pilot/consent/Prolific_Consent_1004_2021.pdf',
             survey: 'surveys/priming_survey.html' //Post-experiment survey that will show up at the very end of the experiment
         }
     );
@@ -114,7 +114,7 @@ $(document).ready(function() {
                                 {
                                     title: 'Technical difficulties',
                                     content: ['Please maximize the browser window to eliminate distractions. This experiment requires that your browser support javascript.',
-                                    		  'Sometimes it can happen that technical difficulties cause experimental scripts to freeze so that you will not be able to submit your session. We are trying our best to avoid these problems. Should they nevertheless occur, we urge you to <a href="mailto:hlplab@gmail.com">contact us</a>, and include the HIT ID number and your worker ID.',
+                                    		  //'Sometimes it can happen that technical difficulties cause experimental scripts to freeze so that you will not be able to submit your session. We are trying our best to avoid these problems. Should they nevertheless occur, we urge you to <a href="mailto:hlplab@gmail.com">contact us</a>, and include the HIT ID number and your worker ID.',
                                              // 'If you are interested in hearing how the experiments you are participating in help us to understand the human brain, feel free to subscribe to our <a href="http://hlplab.wordpress.com/">lab blog</a> where we announce new findings. Note that typically about one year passes before an experiment is published.'
                                              ],
                                     finallyInfo: false

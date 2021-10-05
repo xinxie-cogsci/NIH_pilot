@@ -183,7 +183,7 @@ Experiment.prototype = {
                     .load('surveys/priming_survey.html #endForm > *'));
         $('form#mturk_form')
             .append($('<div id="rsrb" class="survey">')
-                    .load('js-adapt/rsrb_survey.html #rsrb > *', function() {
+                    .load('js-adapt/lab_survey.html #rsrb > *', function() {
                         // set protocol number
                         $('input[name="rsrb.protocol"]:hidden').val(rsrbNum);
                         if (console) console.log($('input[name="rsrb.protocol"]').val());
@@ -252,7 +252,7 @@ Experiment.prototype = {
             $("#experimentStatus").append("wrapup called: " + why + "<br />");
             $("#errors").val($("#errors").val() + why + respDelim);
             $("#instructions").html("<h3>Experiment is over</h3>" +
-                                    "<p>Unfortunately, we were not able to calibrate the experiment to your hearing and audio system, and this is the end of the experiment.  If you have any comments, please write them in the box below before submitting this HIT.  Thank you for participating.</p>")
+                                    "<p>Unfortunately, we were not able to calibrate the experiment to your hearing and audio system, and this is the end of the experiment.  If you have any comments, please write them in the box below before submitting this HIT. Thank you for participating.</p>")
                 .show();
         
         continueButton(mturk_end_surveys_and_submit_error);

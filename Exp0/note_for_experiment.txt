@@ -2,20 +2,16 @@
 Overall setup
 ##############################
    Experiment Instructions
+   Practice: Practice for Lexical Decision task (LD)
+             Practice for Identification task (ID)
    Pretest: Test instructions
-            Practice for test
-            Test block
    Exposure1: Exposure instructions
-   	     Practice for exposure
-   	     Exposure block
+   	      Exposure block
    Test1: Test instructions
-            Practice for test
             Test block
    Exposure2: Exposure instructions
-   	     Practice for exposure
    	     Exposure block
    Test2: Test instructions
-            Practice for test
             Test block
    Survey on accent perception and language background
    NIH demographic survey
@@ -24,8 +20,11 @@ Design
 ##############################
 Phase: Pretest-Exposure1-Test1-Exposure2-Test2
 
-Exposure -- lexical decision task; no feedback is provided; 15 critical + 30 fillers + 45 nonword; 90 trials; random order
-Test -- identification task: D or T; no feedback is provided; random order
+Exposure -- lexical decision task; no feedback is provided; 15 critical + 30 fillers + 45 nonword; 90 trials; random order; 500ms fixation + audio + 2000ms time out
+
+Test -- identification task: D or T; no feedback is provided; 5 minimal pairs in /d/ and /t/; 10 trials; random order; 500ms fixation + audio + 10000ms time out
+
+
 
 
 
