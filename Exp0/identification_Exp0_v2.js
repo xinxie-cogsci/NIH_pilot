@@ -180,7 +180,7 @@ $(document).ready(function() {
        //EXAMPLE BLOCK 1: Identification task
        var sampleStimID = new ExtendedStimuliFileList(
             {
-                prefix: "stimuli/Test/Eng_01_M/",
+                prefix: "stimuli/Test/ENG_01_M/",
                 mediaType: 'audio',
                 filenames: ['bud','but', 'feed', 'feet'], //sentence is not in usable stimulus list; speaker is not either
                 probes: [''],
@@ -233,7 +233,7 @@ $(document).ready(function() {
        //EXAMPLE BLOCK 2: Lexical decision task
        var sampleStimLD = new ExtendedStimuliFileList(
             {
-                prefix: "stimuli/LD/Eng_07_M/",
+                prefix: "stimuli/LD/ENG_07_M/",
                 mediaType: 'audio',
                 filenames: ['animal','zeneva'], //sentence is not in usable stimulus list; speaker is not either
                 probes: [''],
