@@ -36,7 +36,7 @@ $(document).ready(function() {
     e = new Experiment(
         {
             rsrbProtocolNumber: 'RSRB00045955',
-            consentForm: 'https://www.hlp.rochester.edu/mturk/xxie/NIH_pilot/consent/Prolific_Consent_1004_2021.pdf',
+            consentForm: 'https://www.hlp.rochester.edu/mturk/xxie/NIH_pilot/consent/20_Mturk_Consent_KinderLab2021.pdf',
             survey: 'surveys/priming_survey.html' //Post-experiment survey that will show up at the very end of the experiment
         }
     );
@@ -197,7 +197,7 @@ $(document).ready(function() {
                      ITI:1500, // this interval is used to present feedback if any
                      respTimeOut: 10000,
                      mediaType: 'audio',
-                     namespace: 'test1'
+                     namespace: 'sampleID'
                      }); 
                                      
          e.addBlock({
@@ -251,7 +251,7 @@ $(document).ready(function() {
                              ITI:2000, // this interval is used to present feedback if any
                              respTimeOut: 2000,
                              mediaType: 'audio',
-                             namespace: 'sample'});                        
+                             namespace: 'sampleLD'});                        
          e.addBlock({
                   block: sampleBlockLD,
                   instructions:['<p>During this practice session, you will get feedback regarding your accuracy and the time it takes you to respond.</p>',
