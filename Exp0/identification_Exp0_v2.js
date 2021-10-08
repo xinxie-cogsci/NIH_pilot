@@ -143,7 +143,7 @@ $(document).ready(function() {
                 title: 'Listen and decide!',
                 mainInstructions: ['<span style="font-weight:bold;">Because you will be asked to make judgments <u>as accurately and as quickly as possible</u>, it is important that you do this experiment in a quiet room with no sources of distraction in the background. Please turn off your ringtones and other notifications.</span>',
                                    'This experiment has 5 short blocks. The blocks 1, 3, 5 are short and each of them takes about 2-3 minutes. In these blocks, you will be asked to judge <font color="blue">whether a word you heard ended with the sound “d” (as in <em>be<u>d</u></em>) or “t” (as in <em>be<u>t</em></u>)</font>.', 
-                                   'The blocks 2 and 4 are slightly longer, each lasting for about about 5-10 mins. In these blocks, you will be asked to judge <font color="orange">whether the word you heard was a real word of English (e.g., <em>celery</em>) or not (e.g., <em>effering</em>).</font>',
+                                   'The blocks 2 and 4 are slightly longer, each lasting for about about 5-5 mins. In these blocks, you will be asked to judge <font color="orange">whether the word you heard was a real word of English (e.g., <em>celery</em>) or not (e.g., <em>effering</em>).</font>',
                                    'We will start with some practice questions.',
                   ],
                 buttonInstructions: 'Start the practice trials',
@@ -419,14 +419,14 @@ $(document).ready(function() {
                 e.addBlock({
                           block: training1Block,
                           instructions:[
-                          '<p>During this block, you will not be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>',
+                          '<p>During this block, you will not be shown your reaction time, but we will record it. This part takes you about 5 mins to finish. </p>',
                   		  "<p><span style='font-weight:bold;'>Please respond as quickly as possible. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>",
                           '<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
                         
                           			//	"<p>In the next block, you will complete the <font color='orange'>'Word or not'</font> task. Your task is to decide whether what you hear is a word of English or not. Each sound will only be played once. </p>",
                           			//	"<p>Press the corresponding key depending on whether <span style='font-weight:bold;'>you hear a real word of English or not. </span><p>",
                           			//	"<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>", 
-                                    //    "<p>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>", 
+                                    //    "<p>During this part, you won't be shown your reaction time, but we will record it. This part takes you about 5 mins to finish. </p>", 
                                     //    "<font color='red'>Remember to keep your volume at the same level it was previously. </font>",
                           ],
                           onPreview: false,
@@ -548,7 +548,7 @@ $(document).ready(function() {
                          namespace: 'training2'}); 
                 e.addBlock({
                           block: training2Block,
-                          instructions:[ '<p>During this block, you will not be shown your reaction time, but we will record it. This part takes you about 10 mins to finish. </p>',
+                          instructions:[ '<p>During this block, you will not be shown your reaction time, but we will record it. This part takes you about 5 mins to finish. </p>',
                   		  "<p><span style='font-weight:bold;'>Please respond as quickly as possible. We encourage you to keep your fingers on the two keys ('A' and 'L') throughout this part.</span></p>",
                           '<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
                           ],
