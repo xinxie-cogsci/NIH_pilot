@@ -143,7 +143,7 @@ $(document).ready(function() {
                 title: 'Listen and decide!',
                 mainInstructions: ['<span style="font-weight:bold;">Because you will be asked to make judgments <u>as accurately and as quickly as possible</u>, it is important that you do this experiment in a quiet room with no sources of distraction in the background. Please turn off your ringtones and other notifications.</span>',
                                    'This experiment has 5 short blocks. The blocks 1, 3, 5 are short and each of them takes about 2-3 minutes. In these blocks, you will be asked to judge <font color="blue">whether a word you heard ended with the sound “d” (as in <em>be<u>d</u></em>) or “t” (as in <em>be<u>t</em></u>)</font>.', 
-                                   'The blocks 2 and 4 are slightly longer, each lasting for about about 5-5 mins. In these blocks, you will be asked to judge <font color="orange">whether the word you heard was a real word of English (e.g., <em>celery</em>) or not (e.g., <em>effering</em>).</font>',
+                                   'The blocks 2 and 4 are slightly longer, each lasting for about about 3-5 mins. In these blocks, you will be asked to judge <font color="orange">whether the word you heard was a real word of English (e.g., <em>celery</em>) or not (e.g., <em>effering</em>).</font>',
                                    'We will start with some practice questions.',
                   ],
                 buttonInstructions: 'Start the practice trials',
