@@ -36,7 +36,7 @@ $(document).ready(function() {
     e = new Experiment(
         {
             rsrbProtocolNumber: 'RSRB00045955',
-            consentForm: 'https://www.hlp.rochester.edu/mturk/xxie/NIH_pilot/consent/20_Mturk_Consent_KinderLab2021.pdf',
+            consentForm: 'https://www.hlp.rochester.edu/mturk/xxie/NIH_pilot/consent/Prolific_Consent_1013_2021.pdf',
             survey: 'surveys/priming_survey.html' //Post-experiment survey that will show up at the very end of the experiment
         }
     );
