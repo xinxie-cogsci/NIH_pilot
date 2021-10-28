@@ -58,8 +58,8 @@ $(document).ready(function() {
 
     ////////////////////////////////////////////////////////////////////////
     // Instructions
-    var condition = 'control';
-    var TrL = 'A';    //which training list A or B
+    var condition = 'experimental';
+    var TrL = 'B';    //which training list A or B
     var TeL = '1'; //which test list for test block 1 & 2: 1,2,3,4,5,6
    // var isTest = e.urlparams['test']; // Should tell us which probes are being use for test and training
 
