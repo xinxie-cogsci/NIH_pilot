@@ -267,7 +267,7 @@ IdentificationBlock.prototype = {
         // play next stimuli after ITI has elapsed (delayed with a fixation display)
         setTimeout(function() {
         // NOTE: can't use 'this' here, since function is being evaluate outside of method context
-  
+  			_self.tFixation = Date.now();
             $("#fixation").show();
             $("#testInstructions").show().removeClass("dimmed");
             $("#subtitle").show().text('');
@@ -398,14 +398,14 @@ IdentificationBlock.prototype = {
         if (this.TimeOut === false)
         {
         var resp = [this.info(),
-                    this.respKeys[String.fromCharCode(e.which)],
+                    this.respKeys[String.fromCharCode(e.which)], this.tFixation,
                     this.tStart, this.tResp, this.tResp-this.tStart, this.tAudioOn, this.tAudioOff, this.tAudioOff-this.tAudioOn,
                     condition,trainingList,testList,workerid].join('|');
         }
         else
         {
         var resp = [this.info(),
-                    "NULL",
+                    "NULL", this.tFixation,
                     this.tStart, this.tResp, this.tResp-this.tStart, this.tAudioOn, this.tAudioOff, this.tAudioOff-this.tAudioOn,
                     condition,trainingList,testList,workerid].join('|');
         }            

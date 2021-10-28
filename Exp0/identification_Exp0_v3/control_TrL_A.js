@@ -37,7 +37,7 @@ $(document).ready(function() {
         {
             rsrbProtocolNumber: 'RSRB00045955',
             consentForm: 'https://www.hlp.rochester.edu/mturk/xxie/NIH_pilot/consent/Prolific_Consent_1013_2021.pdf',
-            survey: 'surveys/priming_survey.html' //Post-experiment survey that will show up at the very end of the experiment
+            survey: '../surveys/priming_survey.html' //Post-experiment survey that will show up at the very end of the experiment
         }
     );
     e.init();
@@ -58,16 +58,15 @@ $(document).ready(function() {
 
     ////////////////////////////////////////////////////////////////////////
     // Instructions
-
-    var condition = e.urlparams['condition'];
-    var TrL = e.urlparams['TrL'];    //which training list A or B
-    var TeL = e.urlparams['TeL']; //which test list for test block 1 & 2: 1,2,3,4,5,6
-    var isTest = e.urlparams['test']; // Should tell us which probes are being use for test and training
+    var condition = 'control';
+    var TrL = 'A';    //which training list A or B
+    var TeL = '1'; //which test list for test block 1 & 2: 1,2,3,4,5,6
+   // var isTest = e.urlparams['test']; // Should tell us which probes are being use for test and training
 
     //start of instructions section
     var instructions = new InstructionsSubsectionsBlock(
             {
-                logoImg: 'img/logo.png',
+                logoImg: '../img/logo.png',
                 title: 'Listen and decide',
                 mainInstructions: ['Thanks for your interest in our study! We are trying to understand how people comprehend speech. In this study, you will listen to speech sounds and make a decision about what you hear. Your response will provide critical information that helps us to advance speech technology.',
                 				   'This experiment will take about 20 to 30 minutes and you will be paid $3.00.',
@@ -98,11 +97,11 @@ $(document).ready(function() {
                                                       {
                                                           items: [
                                                               {
-                                                                  filename: 'stimuli_soundcheck/cabbage',
+                                                                  filename: '../stimuli_soundcheck/cabbage',
                                                                   answer: 'cabbage'
                                                               },
                                                               {
-                                                                  filename: 'stimuli_soundcheck/matchbox',
+                                                                  filename: '../stimuli_soundcheck/matchbox',
                                                                   answer: 'matchbox'
                                                               }
                                                           ],
@@ -144,7 +143,7 @@ $(document).ready(function() {
         //INSTURCTIONS FOR TRAINING BLOCK
         var instructions_0 = new InstructionsSubsectionsBlock(
             {
-                instrImg: 'img/block_procedure.png',
+                instrImg: '../img/block_procedure.png',
                 instrStyle: 'logo2',
                 title: 'Listen and decide!',
                 mainInstructions: [
@@ -167,7 +166,7 @@ $(document).ready(function() {
 
         var instructions_1 = new InstructionsSubsectionsBlock(
             {
-                instrImg: 'img/ID_task.png',
+                instrImg: '../img/ID_task.png',
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="blue">D or T?</font></span>',
                 mainInstructions: [
@@ -187,7 +186,7 @@ $(document).ready(function() {
        //EXAMPLE BLOCK 1: Identification task
        var sampleStimID = new ExtendedStimuliFileList(
             {
-                prefix: "stimuli/Test/ENG_01_M/",
+                prefix: "../stimuli/Test/ENG_01_M/",
                 mediaType: 'audio',
                 filenames: ['bud','but', 'feed', 'feet'], //sentence is not in usable stimulus list; speaker is not either
                 probes: [''],
@@ -219,7 +218,7 @@ $(document).ready(function() {
          
          var instructions_2 = new InstructionsSubsectionsBlock(
             {
-                instrImg: 'img/LD_task.png',
+                instrImg: '../img/LD_task.png',
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="orange">Word or not?</font></span>',
                 mainInstructions: ["Now we will do a practice for the second task. Your task is to decide whether what you hear is a real word of English or not. Press 'A' if it is a word, and 'L' if it is not.",
@@ -240,7 +239,7 @@ $(document).ready(function() {
        //EXAMPLE BLOCK 2: Lexical decision task
        var sampleStimLD = new ExtendedStimuliFileList(
             {
-                prefix: "stimuli/LD/ENG_07_M/",
+                prefix: "../stimuli/LD/ENG_07_M/",
                 mediaType: 'audio',
                 filenames: ['animal','zeneva'], //sentence is not in usable stimulus list; speaker is not either
                 probes: [''],
@@ -273,53 +272,53 @@ $(document).ready(function() {
         var trainingPrefix;
         var stimListFile;
         if (condition === "testRun") {
-            training1Prefix = "stimuli/LD/Mandarin_speaker5/";
-            training2Prefix = "stimuli/LD/Mandarin_speaker5/";
+            training1Prefix = "../stimuli/LD/Mandarin_speaker5/";
+            training2Prefix = "../stimuli/LD/Mandarin_speaker5/";
            // practicePrefix = "stimuli/Test/Mandarin_speaker5/";
-            test0Prefix = "stimuli/Test/Mandarin_speaker5/";
-            test1Prefix = "stimuli/Test/Mandarin_speaker5/";
-            test2Prefix = "stimuli/Test/Mandarin_speaker5/";
-            training1List = "lists/Training/Testrun/Training1_List_"+condition+"_"+TrL+".txt";
-            training2List = "lists/Training/Testrun/Training2_List_"+condition+"_"+TrL+".txt";
-           // practiceList = "lists/Test/Test0_List"+TeL+".txt";
-            test0List = "lists/Test/Testrun/Test0_List"+TeL+".txt";
-            test1List = "lists/Test/Testrun/Test1_List"+TeL+".txt";
-            test2List = "lists/Test/Testrun/Test2_List"+TeL+".txt";
+            test0Prefix = "../stimuli/Test/Mandarin_speaker5/";
+            test1Prefix = "../stimuli/Test/Mandarin_speaker5/";
+            test2Prefix = "../stimuli/Test/Mandarin_speaker5/";
+            training1List = "../lists/Training/Testrun/Training1_List_"+condition+"_"+TrL+".txt";
+            training2List = "../lists/Training/Testrun/Training2_List_"+condition+"_"+TrL+".txt";
+           // practiceList = "../lists/Test/Test0_List"+TeL+".txt";
+            test0List = "../lists/Test/Testrun/Test0_List"+TeL+".txt";
+            test1List = "../lists/Test/Testrun/Test1_List"+TeL+".txt";
+            test2List = "../lists/Test/Testrun/Test2_List"+TeL+".txt";
         }
         if (condition === "experimental") {
-            training1Prefix = "stimuli/LD/Mandarin_speaker5/";
-            training2Prefix = "stimuli/LD/Mandarin_speaker5/";
-            //practicePrefix = "stimuli/Test/Mandarin_speaker5/";
-            test0Prefix = "stimuli/Test/Mandarin_speaker5/";
-            test1Prefix = "stimuli/Test/Mandarin_speaker5/";
-            test2Prefix = "stimuli/Test/Mandarin_speaker5/";
-            training1List = "lists/Training/Training1_List_"+condition+"_"+TrL+".txt";
-            training2List = "lists/Training/Training2_List_"+condition+"_"+TrL+".txt";
-            //practiceList = "lists/Test0.txt";
-            test0List = "lists/Test/Test0_List"+TeL+".txt";
-            test1List = "lists/Test/Test1_List"+TeL+".txt";
-            test2List = "lists/Test/Test2_List"+TeL+".txt";
+            training1Prefix = "../stimuli/LD/Mandarin_speaker5/";
+            training2Prefix = "../stimuli/LD/Mandarin_speaker5/";
+            //practicePrefix = "../stimuli/Test/Mandarin_speaker5/";
+            test0Prefix = "../stimuli/Test/Mandarin_speaker5/";
+            test1Prefix = "../stimuli/Test/Mandarin_speaker5/";
+            test2Prefix = "../stimuli/Test/Mandarin_speaker5/";
+            training1List = "../lists/Training/Training1_List_"+condition+"_"+TrL+".txt";
+            training2List = "../lists/Training/Training2_List_"+condition+"_"+TrL+".txt";
+            //practiceList = "../lists/Test0.txt";
+            test0List = "../lists/Test/Test0_List"+TeL+".txt";
+            test1List = "../lists/Test/Test1_List"+TeL+".txt";
+            test2List = "../lists/Test/Test2_List"+TeL+".txt";
         }
         if (condition === "control") {
-           	training1Prefix = "stimuli/LD/Mandarin_speaker5/";
-            training2Prefix = "stimuli/LD/Mandarin_speaker5/";
-            //practicePrefix = "stimuli/Test/Mandarin_speaker5/";
-            test0Prefix = "stimuli/Test/Mandarin_speaker5/";
-            test1Prefix = "stimuli/Test/Mandarin_speaker5/";
-            test2Prefix = "stimuli/Test/Mandarin_speaker5/";
-            training1List = "lists/Training/Training1_List_"+condition+"_"+TrL+".txt";
-            training2List = "lists/Training/Training2_List_"+condition+"_"+TrL+".txt";
-           // practiceList = "lists/Test0.txt";
-            test0List = "lists/Test/Test0_List"+TeL+".txt";
-            test1List = "lists/Test/Test1_List"+TeL+".txt";
-            test2List = "lists/Test/Test2_List"+TeL+".txt";
+           	training1Prefix = "../stimuli/LD/Mandarin_speaker5/";
+            training2Prefix = "../stimuli/LD/Mandarin_speaker5/";
+            //practicePrefix = "../stimuli/Test/Mandarin_speaker5/";
+            test0Prefix = "../stimuli/Test/Mandarin_speaker5/";
+            test1Prefix = "../stimuli/Test/Mandarin_speaker5/";
+            test2Prefix = "../stimuli/Test/Mandarin_speaker5/";
+            training1List = "../lists/Training/Training1_List_"+condition+"_"+TrL+".txt";
+            training2List = "../lists/Training/Training2_List_"+condition+"_"+TrL+".txt";
+           // practiceList = "../lists/Test0.txt";
+            test0List = "../lists/Test/Test0_List"+TeL+".txt";
+            test1List = "../lists/Test/Test1_List"+TeL+".txt";
+            test2List = "../lists/Test/Test2_List"+TeL+".txt";
         }
         
                  
         //Instructions before the real experiment Block 1
            var instructions_block1 = new InstructionsSubsectionsBlock(
             {
-                instrImg: 'img/ID_task.png',
+                instrImg: '../img/ID_task.png',
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="blue">Block 1: D or T?</font></span>',
                 mainInstructions: ["<p>You are done with the practice. Now the real experiment begins and you will hear a different speaker. Through the rest of the experiment, you will hear the same voice even though the task switches between blocks. </p>",
@@ -380,7 +379,7 @@ $(document).ready(function() {
          //Instructions before the real experiment Block 2
            var instructions_block2 = new InstructionsSubsectionsBlock(
             {
-                instrImg: 'img/LD_task.png',
+                instrImg: '../img/LD_task.png',
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="orange">Block 2: Word or not?</font></span>',
                 mainInstructions: ["<p>You have completed Block 1. </p>",
@@ -445,7 +444,7 @@ $(document).ready(function() {
          //Instructions before the real experiment Block 3
            var instructions_block3 = new InstructionsSubsectionsBlock(
             {
-                instrImg: 'img/ID_task.png',
+                instrImg: '../img/ID_task.png',
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="blue">Block 3: D or T?</font></span>',
                 mainInstructions: ["<p>You have completed Block 2.</p>",
@@ -507,7 +506,7 @@ $(document).ready(function() {
         //Instructions before the real experiment Block 4
            var instructions_block4 = new InstructionsSubsectionsBlock(
             {
-                instrImg: 'img/LD_task.png',
+                instrImg: '../img/LD_task.png',
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="orange">Block 4: Word or not?</font></span>',
                 mainInstructions: ["<p>You have completed Block 3. </p>",
@@ -568,7 +567,7 @@ $(document).ready(function() {
            //Instructions before the real experiment Block 5
            var instructions_block5 = new InstructionsSubsectionsBlock(
             {
-                instrImg: 'img/ID_task.png',
+                instrImg: '../img/ID_task.png',
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="blue">Block 5: D or T?</font></span>',
                 mainInstructions: ["<p>You have completed Block 4.</p>",

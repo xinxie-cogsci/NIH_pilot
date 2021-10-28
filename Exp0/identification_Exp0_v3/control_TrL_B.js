@@ -59,10 +59,10 @@ $(document).ready(function() {
     ////////////////////////////////////////////////////////////////////////
     // Instructions
 
-    var condition = e.urlparams['condition'];
-    var TrL = e.urlparams['TrL'];    //which training list A or B
-    var TeL = e.urlparams['TeL']; //which test list for test block 1 & 2: 1,2,3,4,5,6
-    var isTest = e.urlparams['test']; // Should tell us which probes are being use for test and training
+    var condition = 'control';
+    var TrL = 'B';    //which training list A or B
+    var TeL = '1'; //which test list for test block 1 & 2: 1,2,3,4,5,6
+   // var isTest = e.urlparams['test']; // Should tell us which probes are being use for test and training
 
     //start of instructions section
     var instructions = new InstructionsSubsectionsBlock(
