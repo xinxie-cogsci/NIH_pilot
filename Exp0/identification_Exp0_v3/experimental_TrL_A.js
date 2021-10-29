@@ -322,7 +322,7 @@ $(document).ready(function() {
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="blue">Block 1: D or T?</font></span>',
                 mainInstructions: ["<p>You are done with the practice. Now the real experiment begins and you will hear a different speaker. Through the rest of the experiment, you will hear the same voice even though the task switches between blocks. </p>",
-               					   "<p>If your accuracy is higher than 80%, you will get a bonus reward of .50 upon completion of the experiment. </p>",
+               					   "<p><font color='red'>If your accuracy is higher than 80%, you will get a bonus reward of $.50 upon completion of the experiment. </font></p>",
                                    "<p>In Block 1, you will complete the <font color='blue'>'D or T'</font> task.</p>",
                                  //  "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>", 
                    ],
