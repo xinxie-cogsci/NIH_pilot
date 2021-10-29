@@ -25,7 +25,18 @@
             </div>
             <div id="testInstructions">
             </div>
-
+			<form id="mturk_form" method="POST">
+                <textArea id="assignmentId" name="assignmentId" ></textArea><br />
+                <textArea id="practiceResp" name="practiceResp" ></textArea><br />
+                <textArea id="errors" name="errors" ></textArea><br />
+                
+                <input type="hidden" id="userAgent" name="userAgent" />
+                <input type="hidden" id="set" name="set" />
+                <input type="hidden" id="condition" name="condition" />
+                <input type="hidden" id="speaker" name="speaker" />
+                <input type="hidden" id="list_num" name="list_num" />
+                <input id="submitButton" type="submit" name="Submit" value="Submit" />
+            </form>
             <div id="continue">
                 <span id="contText">Click to continue...</span>
             </div>
