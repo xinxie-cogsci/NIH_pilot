@@ -179,7 +179,7 @@ var mturk_end_surveys_and_submit = function() {
   //                    var myAns = $("#trainingResp").val().replace(';','<br>');
     //                  $('#live-answers').html(header + myAns);
                      // $("#mturk_form").submit();
-                      $("#mturk_form").proliferate.submit();
+                      proliferate.submit(output); //output is the JSON object converted from #mturk_form
                  });
             }
         }
