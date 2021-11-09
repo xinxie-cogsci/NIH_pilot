@@ -162,7 +162,7 @@ var mturk_end_surveys_and_submit = function() {
 
     $('input').click(function() {
         var nextToShow=$(visibleBox).next('.question_section:hidden');                       
-        if ($(this).attr('class') == 'moveOn') {
+        if ($(this).attr('class') == 'moveOn') { // class 'moveOn' is defined at the end of the language background survey html (priming_survey.html)
             if (nextToShow.length > 0) {
                 visibleBox.hide();
                 nextToShow.show();
@@ -179,7 +179,59 @@ var mturk_end_surveys_and_submit = function() {
   //                    var myAns = $("#trainingResp").val().replace(';','<br>');
     //                  $('#live-answers').html(header + myAns);
                      // $("#mturk_form").submit();
-                      proliferate.submit(output); //output is the JSON object converted from #mturk_form
+                     
+                     const formElement = document.querySelector('form#mturk_form')
+
+				// convert the form to JSON
+				const getFormJSON = (form) => {
+				  const data = new FormData(form);
+				  return Array.from(data.keys()).reduce((result, key) => {
+					if (result[key]) {
+					  result[key] = data.getAll(key)
+					  return result
+					}
+					result[key] = data.get(key);
+					return result;
+				  }, {});
+				};
+				
+            
+            
+				// handle the form submission event, prevent default form behaviour, check validity, convert form to JSON
+			//	const handler = (event) => {
+				//  event.preventDefault();
+				  const valid = formElement.reportValidity();
+				//  if (valid) {
+					const result = getFormJSON(formElement);
+					
+					// handle one, multiple or no files uploaded
+					//const images = [result.images].flat().filter((file) => !!file.name)
+					
+					// handle one, multiple or no choices selected
+					const similar_accent_familiarity_place = [result.similar_accent_familiarity_place || []].flat();
+					const question_section = [result.question_section || []].flat();
+					// convert the checkbox to a boolean
+					//const isHappyReader = !!(result.isHappyReader && result.isHappyReader === 'on')
+
+					// use spread function, but override the keys we've made changes to
+					const output = {
+					  ...result,
+					 // images,
+					  similar_accent_familiarity_place,
+					  question_section
+					}
+					console.log(output)
+				 // }
+			//	}
+
+			//	formElement.addEventListener("submit", handler)
+                     
+				console.log("showing xxxxx in button")	
+				
+				debugger;
+				
+                proliferate.submit(output); //output is the JSON object converted from #mturk_form
+                console.log(proliferate)
                  });
             }
         }

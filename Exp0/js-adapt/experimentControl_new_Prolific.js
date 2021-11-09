@@ -180,10 +180,10 @@ Experiment.prototype = {
         $('form#mturk_form')
             .append($('<div id="endForm" class="survey"></div>')
                     //.load('js-adapt/audio_comments_form.html #endForm > *'));
-                    .load('../surveys/priming_survey.html #endForm > *')); // this survey presents a set of questions on the experimental procedure
+                    .load('../surveys/language_survey_short.html #endForm > *')); // this survey presents a set of questions on the experimental procedure
         $('form#mturk_form')
             .append($('<div id="rsrb" class="survey">')
-                    .load('../js-adapt/lab_survey.html #rsrb > *', function() { // this survey specifies the demographic information asked at the end
+                    .load('../surveys/demographic_survey.html #rsrb > *', function() { // this survey specifies the demographic information asked at the end
                         // set protocol number
                         $('input[name="rsrb.protocol"]:hidden').val(rsrbNum);
                         if (console) console.log($('input[name="rsrb.protocol"]').val());
