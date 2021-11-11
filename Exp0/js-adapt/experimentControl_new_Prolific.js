@@ -180,7 +180,7 @@ Experiment.prototype = {
         $('form#mturk_form')
             .append($('<div id="endForm" class="survey"></div>')
                     //.load('js-adapt/audio_comments_form.html #endForm > *'));
-                    .load('../surveys/language_survey_short.html #endForm > *')); // this survey presents a set of questions on the experimental procedure
+                    .load('../surveys/language_survey.html #endForm > *')); // this survey presents a set of questions on the experimental procedure
         $('form#mturk_form')
             .append($('<div id="rsrb" class="survey">')
                     .load('../surveys/demographic_survey.html #rsrb > *', function() { // this survey specifies the demographic information asked at the end
