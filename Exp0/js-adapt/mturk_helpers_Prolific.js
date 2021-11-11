@@ -218,7 +218,7 @@ var mturk_end_surveys_and_submit = function() {
 						  similar_accent_familiarity_place,
 						  question_section
 						}
-						console.log(output)
+						// console.log(output)
 				
 						//debugger;
 				
