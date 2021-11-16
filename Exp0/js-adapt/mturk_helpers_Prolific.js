@@ -207,7 +207,7 @@ var mturk_end_surveys_and_submit = function() {
 					
 						// handle one, multiple or no choices selected
 						const similar_accent_familiarity_place = [result.similar_accent_familiarity_place || []].flat();
-						const question_section = [result.question_section || []].flat();
+						const specific_language_background = [result.specific_language_background || []].flat();
 						// convert the checkbox to a boolean
 						//const isHappyReader = !!(result.isHappyReader && result.isHappyReader === 'on')
 
@@ -216,7 +216,7 @@ var mturk_end_surveys_and_submit = function() {
 						  ...result,
 						 // images,
 						  similar_accent_familiarity_place,
-						  question_section
+						  specific_language_background
 						}
 						// console.log(output)
 				
