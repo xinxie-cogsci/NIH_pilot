@@ -219,12 +219,12 @@ Experiment.prototype = {
             return false;
         }
 
-        var cookie = readCookie('bradlowExp1');
-        if (cookie) {
-            $("#instructions").hide();
-            $("#failMessage").show();
-            return false;
-        }
+       // var cookie = readCookie('bradlowExp1');
+       // if (cookie) {
+        //    $("#instructions").hide();
+        //    $("#failMessage").show();
+        //    return false;
+      //  }
 
 
 
@@ -232,7 +232,7 @@ Experiment.prototype = {
     },
 
     wrapup: function(why) {
-        createCookie('bradlowExp1',1,14);
+       // createCookie('bradlowExp1',1,14);
      
         if (typeof(why)==='undefined') {
             // success
