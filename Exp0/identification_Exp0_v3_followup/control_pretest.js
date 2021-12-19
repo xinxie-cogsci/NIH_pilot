@@ -151,8 +151,9 @@ $(document).ready(function() {
                 mainInstructions: [
                                    'This experiment only has 1 short block. You will be asked to judge <font color="blue">whether a word you heard ended with the sound “d” (as in <em>be<u>d</u></em>) or “t” (as in <em>be<u>t</em></u>)</font>.', 
                                    '<span style="font-weight:bold;">You can respond as soon as the audio play finishes. Please respond <u>as accurately and as quickly as possible</u>. Your performance will be tracked throughout the experiment. ',
+                                   'We will start with some practice questions.',
                   ],
-                buttonInstructions: 'Start the experiment',
+                buttonInstructions: 'Start the practice trials',
                 beginMessage: 'Click when ready',
                 exptInstructions: false,
 
@@ -164,6 +165,60 @@ $(document).ready(function() {
         });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
 
 
+        var instructions_1 = new InstructionsSubsectionsBlock(
+            {
+                instrImg: '../img/ID_task_B3.png',
+                instrStyle: 'logo2',
+                title: '<span style="font-weight:bold;"><font color="blue">D or T?</font></span>',
+                mainInstructions: [
+                                   'In this practice, you will hear words ending in "d" or "t". Choose the sound you hear by pressing the corresponding button.', 
+                  ],
+                buttonInstructions: 'Start the practice trials',
+                beginMessage: 'Click when ready',
+                exptInstructions: false,
+
+            });
+            
+        e.addBlock({block: instructions_1,
+                    onPreview: true,
+                    showInTest: true //showInTest: when urlparam for mode=test, don't add the block
+        });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
+
+       //EXAMPLE BLOCK 1: Identification task
+       var sampleStimID = new ExtendedStimuliFileList(
+            {
+                prefix: "../stimuli/Test/ENG_01_M/",
+                mediaType: 'audio',
+                filenames: ['bud','but', 'feed', 'feet'], //sentence is not in usable stimulus list; speaker is not either
+                probes: [''],
+                correctKeys: ['Yes','No']
+            }
+        );
+        var sampleBlockID = new IdentificationBlock({stimuli: sampleStimID,
+                     blockRandomizationMethod: "shuffle",
+                     trialInstructions: 'Does the word end in "d" or "t"?',
+                     reps: 1,
+                     respKeys: {'D': 'd', 'T': 't'}, 
+                     categories: ['d', 't'], 
+                     fixationTime: 500,
+                     ITI:2000, // this interval is used to present feedback if any
+                     respTimeOut: 200000, 
+                     mediaType: 'audio',
+                     namespace: 'sampleID'
+                     }); 
+                                     
+         e.addBlock({
+                  block: sampleBlockID,
+                  instructions:[
+                  '<p>During this practice session, no feedback will be provided.</p>',
+                  "<p><span style='font-weight:bold;'>Please respond as accurately and as quickly as possible. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>",
+                  '<p><font color="red">It is important that you keep your volume at the same level throughout the experiment.</font></p>',
+                  ],
+                  onPreview: false,
+         });
+         
+
+
         //REST OF EXP
         var testPrefix;
         var trainingPrefix;
@@ -172,6 +227,29 @@ $(document).ready(function() {
             test0Prefix = "../stimuli/Test/Mandarin_speaker5/";
             test0List = "../lists/Test/Test0_List"+TeL+".txt";
       //  }
+
+           //Instructions before the real experiment Block 5
+           var instructions_block5 = new InstructionsSubsectionsBlock(
+            {
+                instrImg: '../img/ID_task_only.png',
+                instrStyle: 'logo2',
+                title: '<span style="font-weight:bold;"><font color="blue">D or T?</font></span>',
+                mainInstructions: ["<p>You are done with the practice. Now the real experiment begins and you will hear a different speaker. ",
+                                   "<p>You will complete the same <font color='blue'>'D or T'</font> task. </p>",
+                                 //  "<p><span style='font-weight:bold;'>Respond as quickly as possible without sacrificing accuracy. We encourage you to keep your fingers on the two keys ('D' and 'T') throughout this part.</span></p>", 
+                   ],
+                buttonInstructions: 'Begin the experiment',
+                beginMessage: 'Click when ready',
+                exptInstructions: false,
+
+            });
+            
+        e.addBlock({block: instructions_block5,
+                    onPreview: true,
+                    showInTest: true //showInTest: when urlparam for mode=test, don't add the block
+        });  // onPreview = true for blocks that can be viewed BEFORE the worker accepts a HIT. To get an idea of what this means, try to go through the HIT without accepting it and see how far you get
+
+          
 
         //TEST BLOCK SHORT
                     
