@@ -148,8 +148,8 @@ $(document).ready(function() {
                 title: 'Listen and decide!',
                 mainInstructions: [
                                    'This experiment has 3 short blocks. The block 3 is short and takes about 2-3 minutes. In this block, you will be asked to judge <font color="blue">whether a word you heard ended with the sound “d” (as in <em>be<u>d</u></em>) or “t” (as in <em>be<u>t</em></u>)</font>.', 
-                                   'The blocks 1 and 2 are slightly longer, each lasting for about about 3-5 mins. In these blocks, you will be asked to judge <font color="orange">whether the word you heard was a real word of English (e.g., <em>celery</em>) or not (e.g., <em>effering</em>).</font>',
-                                   '<span style="font-weight:bold;">In both tasks, you can respond as soon as the audio play finishes. Please respond <u>as accurately and as quickly as possible</u>. Your performance will be tracked throughout the experiment. You will again an additional $.5 if you scored 80% correct or more.',
+                                   'The blocks 1 and 2 are slightly longer, each lasting for about about 5-7 mins. In these blocks, you will be asked to judge <font color="orange">whether the word you heard was a real word of English (e.g., <em>celery</em>) or not (e.g., <em>effering</em>).</font>',
+                                   '<span style="font-weight:bold;">In both tasks, you can respond as soon as the audio play finishes. Please respond <u>as accurately and as quickly as possible</u>. Your performance will be tracked throughout the experiment. You will get an additional $.5 if you scored 80% correct or more.',
                                    'We will start with some practice questions.',
                   ],
                 buttonInstructions: 'Start the practice trials',
