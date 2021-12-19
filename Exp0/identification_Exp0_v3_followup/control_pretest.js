@@ -167,7 +167,7 @@ $(document).ready(function() {
 
         var instructions_1 = new InstructionsSubsectionsBlock(
             {
-                instrImg: '../img/ID_task_B3.png',
+                instrImg: '../img/ID_task_only.png',
                 instrStyle: 'logo2',
                 title: '<span style="font-weight:bold;"><font color="blue">D or T?</font></span>',
                 mainInstructions: [
